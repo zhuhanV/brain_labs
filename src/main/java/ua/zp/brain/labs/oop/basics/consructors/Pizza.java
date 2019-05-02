@@ -1,5 +1,8 @@
 package ua.zp.brain.labs.oop.basics.consructors;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class Pizza {
     private Circle basis;
     private String[] composition;
@@ -44,7 +47,7 @@ public class Pizza {
         this.cost = cost;
         new Circle(diameter / 2);
         System.out.println("Пицца " + name + "\n" + "Вартість: " + cost);
-        System.out.println("Склад: " + composition);
+        System.out.println("Склад: " + Arrays.toString(composition));
     }
 
 }
