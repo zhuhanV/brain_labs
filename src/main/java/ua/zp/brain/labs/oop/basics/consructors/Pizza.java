@@ -1,4 +1,4 @@
-package ua.zp.brain.labs.oop.basics.consructors;
+package main.java.ua.zp.brain.labs.oop.basics.consructors;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;

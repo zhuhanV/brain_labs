@@ -1,14 +1,14 @@
-package ua.zp.brain.labs.oop.basics.blocks;
+package main.java.ua.zp.brain.labs.oop.basics.blocks;
 
 public class Film {
     private String name;
     private double duration;
     private String genre;
-    private final String COMEDY = "comedy";
-    private final String FANTASTIC = "fantastic";
-    private final String HISTORICAL_DRAMA = "historical drama";
-    private final String BIOGRAPHY = "biography";
-    private final String HORRORS = "horrors";
+    public static final String COMEDY = "comedy";
+    public static final String FANTASTIC = "fantastic";
+    public static final String HISTORICAL_DRAMA = "historical drama";
+    public static final String BIOGRAPHY = "biography";
+    public static final String HORRORS = "horrors";
 
 
     public String getName() {
@@ -35,31 +35,23 @@ public class Film {
         this.genre = genre;
     }
 
-
-    public String getCOMEDY() {
-        return COMEDY;
-    }
-
-    public String getFANTASTIC() {
-        return FANTASTIC;
-    }
-
-    public String getHISTORICAL_DRAMA() {
-        return HISTORICAL_DRAMA;
-    }
-
-    public String getHORRORS() {
-        return HORRORS;
-    }
-
     public Film(String name, double duration, String genre) {
         this.name = name;
         this.duration = duration;
         this.genre = genre;
-        System.out.println("Movie " + getName() + " successfully created");
+        System.out.println("Movie \"" + getName() + "\" successfully created");
     }
 
     {
         System.out.println("Creates a new film");
+    }
+
+    @Override
+    public String toString() {
+        return "Film{" +
+                "name='" + name + '\'' +
+                ", duration=" + duration +
+                ", genre='" + genre + '\'' +
+                '}';
     }
 }

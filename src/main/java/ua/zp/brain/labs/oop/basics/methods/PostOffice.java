@@ -9,6 +9,10 @@ package main.java.ua.zp.brain.labs.oop.basics.methods;
  * method of receiving the list of parcels;
  * packSend ()
  * packaging method and sending parcel list
+ *
+ * {@link PostOffice#calcParsel(int)}
+ *
+ * @author Brainacad35
  */
 public class PostOffice {
     private int id;
