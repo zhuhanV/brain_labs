@@ -4,11 +4,11 @@ public class Film {
     private String name;
     private double duration;
     private String genre;
-    private final String comedy = "comedy";
-    private final String fantastic = "fantastic";
-    private final String historicalDrama = "historical drama";
-    private final String biography = "biography";
-    private final String horrors = "horrors";
+    private final String COMEDY = "comedy";
+    private final String FANTASTIC = "fantastic";
+    private final String HISTORICAL_DRAMA = "historical drama";
+    private final String BIOGRAPHY = "biography";
+    private final String HORRORS = "horrors";
 
 
     public String getName() {
@@ -35,36 +35,28 @@ public class Film {
         this.genre = genre;
     }
 
-    public String getComedy() {
-        return comedy;
+
+    public String getCOMEDY() {
+        return COMEDY;
     }
 
-    public String getFantastic() {
-        return fantastic;
+    public String getFANTASTIC() {
+        return FANTASTIC;
     }
 
-    public String getHorrors() {
-        return horrors;
+    public String getHISTORICAL_DRAMA() {
+        return HISTORICAL_DRAMA;
     }
 
-    public String getHistoricalDrama() {
-        return historicalDrama;
+    public String getHORRORS() {
+        return HORRORS;
     }
 
-    public String getBiography() {
-        return biography;
-    }
-
-    public Film() {
+    public Film(String name, double duration, String genre) {
         this.name = name;
         this.duration = duration;
         this.genre = genre;
         System.out.println("Movie " + getName() + " successfully created");
-    }
-
-    public Film(String name, double duration, String genre) {
-        this();
-        this.genre = genre;
     }
 
     {
