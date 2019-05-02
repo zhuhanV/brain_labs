@@ -42,7 +42,7 @@ public class Circle {
     public Circle(double radius) {
         this.radius = radius;
         this.length = 2 * Math.PI * radius;
-        this.square = 2 * Math.PI * Math.sqrt(radius);
+        this.square = Math.PI * Math.pow(radius, 2);
         System.out.println("Довжина окружності: " + length);
         System.out.println("Площа окружності: " + square);
 
