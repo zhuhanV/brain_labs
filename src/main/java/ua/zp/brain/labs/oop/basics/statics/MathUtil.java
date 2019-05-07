@@ -1,4 +1,4 @@
-package ua.zp.brain.labs.oop.basics.statics;
+package main.java.ua.zp.brain.labs.oop.basics.statics;
 
 /**
  * Simple class with static methods, for demonstrate working with cycles in Java.
@@ -29,8 +29,10 @@ public class MathUtil {
      * @return multiply result.
      */
     public static int mul(int ...values) {
-        int result = 0;
-        // TODO  complete this.
+        int result = 1;
+        for (int a : values) {
+            result *= a;
+        }
         return result;
     }
 

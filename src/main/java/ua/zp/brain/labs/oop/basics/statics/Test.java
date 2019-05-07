@@ -1,6 +1,8 @@
-package ua.zp.brain.labs.oop.basics.statics;
+package main.java.ua.zp.brain.labs.oop.basics.statics;
 
-import static ua.zp.brain.labs.oop.basics.statics.MathUtil.*;
+import static main.java.ua.zp.brain.labs.oop.basics.statics.MathUtil.*;
+
+
 
 public class Test {
 
