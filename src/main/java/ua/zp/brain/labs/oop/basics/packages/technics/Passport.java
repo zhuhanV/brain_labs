@@ -1,12 +1,13 @@
 package main.java.ua.zp.brain.labs.oop.basics.packages.technics;
 
+
 import java.util.Date;
 
 public class Passport {
     private String model;
-    private int yearsWarranty;
     private Date dateManufacture;
     private String country;
+    private Date warrantyStartDate;
 
     public String getModel() {
         return model;
@@ -14,14 +15,6 @@ public class Passport {
 
     public void setModel(String model) {
         this.model = model;
-    }
-
-    public int getYearsWarranty() {
-        return yearsWarranty;
-    }
-
-    public void setYearsWarranty(int yearsWarranty) {
-        this.yearsWarranty = yearsWarranty;
     }
 
     public Date getDateManufacture() {
@@ -39,4 +32,24 @@ public class Passport {
     public void setCountry(String country) {
         this.country = country;
     }
+
+    public Date getWarrantyStartDate() {
+        return warrantyStartDate;
+    }
+
+    public void setWarrantyStartDate(Date warrantyStartDate) {
+        this.warrantyStartDate = warrantyStartDate;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Passport{" +
+                "model='" + model + '\'' +
+                ", dateManufacture=" + dateManufacture +
+                ", country='" + country + '\'' +
+                ", warrantyStartDate=" + warrantyStartDate +
+                '}';
+    }
 }
+
