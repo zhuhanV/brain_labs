@@ -1,5 +1,7 @@
 package main.java.ua.zp.brain.labs.oop.basics.statics;
 
+import java.util.Arrays;
+
 /**
  * Simple class with static methods, for demonstrate working with cycles in Java.
  * Help to calc several math sequences.
@@ -44,8 +46,9 @@ public class MathUtil {
      */
     public static void printWithSkip(int skipValue, int ...values) {
         //TODO modify this method to complete the output of characters but skip the specified value.
-        for(int a: values) {
-            System.out.print(a+" ");
+        for (int i = 0; i < values.length; i++) {
+            if (skipValue != values[i])
+                System.out.print(values[i] + " ");
         }
     }
 
@@ -57,9 +60,14 @@ public class MathUtil {
      */
     public static void printToValue(int interruptValue, int ...values) {
         //TODO modify this method to complete the output of characters upon reaching the specified interrupt parameter
-        for(int a: values) {
-            System.out.print(a+" ");
+        for (int i = 0; i < values.length; i++) {
+            if (interruptValue == values[i]) {
+                break;
+            }
+            System.out.print(values[i] + " ");
+
         }
+
     }
 
     /**
@@ -70,6 +78,9 @@ public class MathUtil {
      */
     public static int factorial(int a) {
         int result = 1;
+        for (int i = result; i < a; i++) {
+            result *= i;
+        }
         // TODO complete this. Calc FACTORIAL for 'a'
         return result;
     }
@@ -84,6 +95,9 @@ public class MathUtil {
      */
     public static int harmonicProgression(int a, int q, int count) {
         int result = a;
+        for (int i = 0; i < count; i++) {
+            result *= (int) Math.pow((double) q, ((double) i));
+        }
         // TODO complete this. Calc Harmonic Progression.
         return result;
     }
@@ -97,7 +111,10 @@ public class MathUtil {
      * @return arithmetic progression result.
      */
     public static int arithmeticProgression(int a, int q, int count) {
-        int result = a;
+        int result = 0;
+        for (int i = 0; i < count; i++) {
+            result = a + (q * i);
+        }
         // TODO complete this. Calc Arithmetic Progression.
         return result;
     }
