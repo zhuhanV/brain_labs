@@ -55,7 +55,31 @@ public class Main {
         Double infinityValue = zero / nonZero;
         System.out.println(infinityValue);
 
+        if (infinityValue.isNaN()) {
+            System.out.println("Переменная infinityValue" + "=NAN");
+        } else if (infinityValue.isInfinite()) {
+            System.out.println("Переменная infinityValue" + "=Infinite");
+        }
+
+        if (nanValue.isNaN()) {
+            System.out.println("Переменная nanValue" + "=NAN");
+        } else if (nanValue.isInfinite()) {
+            System.out.println("Переменная nanValue" + "=Infinite");
+        }
+
+        Long long1 = 120L;
+        Long long2 = 120L;
+        System.out.println(long1 == long2);
+
+        Long long3 = 1200L;
+        Long long4 = 1200L;
+        System.out.println(long3 == long4);
+
+
     }
-
-
 }
+
+
+
+
+
