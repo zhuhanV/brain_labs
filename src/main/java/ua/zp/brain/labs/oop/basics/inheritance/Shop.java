@@ -59,7 +59,8 @@ public class Shop {
         this.client = client;
     }
 
-    public void openUp() {
+
+    public static void openUp() {
         System.out.println("The shop has opened");
     }
 
@@ -67,8 +68,8 @@ public class Shop {
         System.out.println("The shop " + getName() + " sell goods");
     }
 
-    public void goLunch() {
-        System.out.println("The shop " + getName() + " closed for lunch");
+    public static void goLunch() {
+        System.out.println("The shop closed for lunch");
     }
 
 }

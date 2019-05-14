@@ -43,17 +43,16 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", numberTel='" + numberTel + '\'' +
-                '}';
+        return
+                "name= " + name +
+                ", numberTel= " + numberTel;
     }
 
     public void sayHello() {
-        System.out.println("Hello");
+        System.out.println("say Hello");
     }
 
     public void sayBue() {
-        System.out.println("Bue");
+        System.out.println("say Bue");
     }
 }

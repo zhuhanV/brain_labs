@@ -35,10 +35,11 @@ public class Manager extends Worker {
 
     @Override
     public String toString() {
-        return "Manager{" +
-                "department='" + department + '\'' +
-                "} " + super.toString();
+        return "Manager: " +
+                "department= " + department + ", "+
+                 super.toString();
     }
+
 
 }
 

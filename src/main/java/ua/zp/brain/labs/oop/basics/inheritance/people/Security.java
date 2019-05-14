@@ -8,11 +8,16 @@ public class Security extends Worker {
     }
 
     public void speaksRadio() {
-        System.out.println("The guard speaks on the radio");
+        System.out.println("The security speaks on the radio");
     }
 
     @Override
     public void doesJob() {
         System.out.println("The security does the job");
+    }
+
+    @Override
+    public String toString() {
+        return "Security: "+super.toString();
     }
 }
