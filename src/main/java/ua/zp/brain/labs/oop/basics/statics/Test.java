@@ -25,5 +25,7 @@ public class Test {
         System.out.println("Factorial of value: " + factorial(3));
         System.out.println("Harmonic progression: " + harmonicProgression(2, 4, 2));
         System.out.println("Arithmetic progression: " + arithmeticProgression(2, 4, 3));
+
+
     }
 }

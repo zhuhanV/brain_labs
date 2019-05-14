@@ -6,6 +6,10 @@ public class PassportUtil {
         //"закрытый конструктор"
     }
 
+    public static void marriageRegistrate() {
+
+    }
+
     public static void marriageRegistrate(Passport spouse1, Passport spouse2) {
         spouse1.setSpouseId(spouse2.getId());
         spouse2.setSpouseId(spouse1.getId());
