@@ -2,6 +2,10 @@ package main.java.ua.zp.brain.labs.oop.basics.inheritance.people;
 
 import java.util.Date;
 
+/**
+ * Implementing a class hierarchy with fields and methods
+ */
+
 public class Person {
     private String name;
     private Date dateBirth;

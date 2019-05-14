@@ -50,4 +50,8 @@ public class Worker extends Person {
         System.out.println("The worker does the job");
     }
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

@@ -33,6 +33,12 @@ public class Manager extends Worker {
         System.out.println("The manager does the job");
     }
 
+    @Override
+    public String toString() {
+        return "Manager{" +
+                "department='" + department + '\'' +
+                "} " + super.toString();
+    }
 
 }
 
