@@ -1,5 +1,7 @@
 package main.java.ua.zp.brain.labs.oop.basics.inheritance.people;
 
+import java.util.Objects;
+
 public class Manager extends Worker {
     private String department;
 
@@ -17,29 +19,38 @@ public class Manager extends Worker {
     }
 
     public void consult() {
-        System.out.println("The manager talks about the product");
+        System.out.println("The manager talks " + Client.class.getSimpleName() + " about the product");
     }
 
     public void talksDiscounts() {
-        System.out.println("The manager talks about discounts");
+        System.out.println("The manager talks " + Client.class.getSimpleName() + " about discounts");
     }
 
     public void advises() {
-        System.out.println("The manager advises");
+        System.out.println("The manager advises to buy the product");
     }
 
     @Override
     public void doesJob() {
-        System.out.println("The manager does the job");
+        consult();
+        talksDiscounts();
+        advises();
     }
 
     @Override
     public String toString() {
         return "Manager: " +
-                "department= " + department + ", "+
-                 super.toString();
+                "department= " + department + ", " +
+                super.toString();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
 
+        Manager manager = (Manager) o;
+        return department != null ? department.equals(((Manager) o).department) : ((Manager) o).department == null;
+    }
 }
 

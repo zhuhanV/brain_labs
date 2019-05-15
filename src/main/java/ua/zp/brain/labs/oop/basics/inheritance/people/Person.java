@@ -1,6 +1,7 @@
 package main.java.ua.zp.brain.labs.oop.basics.inheritance.people;
 
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * Implementing a class hierarchy with fields and methods
@@ -45,14 +46,28 @@ public class Person {
     public String toString() {
         return
                 "name= " + name +
-                ", numberTel= " + numberTel;
+                        ", numberTel= " + numberTel;
     }
 
     public void sayHello() {
-        System.out.println("say Hello");
+
+        System.out.println(getClass().getSimpleName() + " " + getName() + " say Hello");
     }
 
     public void sayBue() {
-        System.out.println("say Bue");
+        System.out.println(getClass().getSimpleName() + " " + getName() + " say Bue");
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        if (!dateBirth.equals(o)) return false;
+        return name != null ? name.equals(person.name) : person.name == null;
+
+    }
+
+
+
 }

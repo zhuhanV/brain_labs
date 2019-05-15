@@ -1,5 +1,7 @@
 package main.java.ua.zp.brain.labs.oop.basics.inheritance.people;
 
+import java.util.Objects;
+
 /**
  * A simple class with the construct and methods of demonstrating the work of the cashier.
  *
@@ -30,16 +32,31 @@ public class Cashier extends Worker {
     /**
      * The cashier counted the money.
      *
-     * @see countMoney
+     * @see
      */
     public void countMoney() {
-        System.out.println("The cashier counted the money");
+        System.out.println(getClass().getSimpleName() + " " + getName() + " counted the money");
     }
 
     @Override
     public void doesJob() {
-        System.out.println("The cashier does the job");
-        ;
+        countMoney();
+
     }
 
+    @Override
+    public String toString() {
+        return "Cashier: " +
+                "cash desk №" + numberCashier +
+                ", " + super.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+
+        Cashier cashier = (Cashier) o;
+        return numberCashier != 0 ? numberCashier == ((Cashier) o).numberCashier : ((Cashier) o).numberCashier == 0;
+    }
 }

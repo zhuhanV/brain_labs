@@ -3,6 +3,7 @@ package main.java.ua.zp.brain.labs.oop.basics.inheritance.people;
 import main.java.ua.zp.brain.labs.oop.basics.inheritance.people.Person;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Worker extends Person {
     private Date employment;
@@ -39,7 +40,7 @@ public class Worker extends Person {
     }
 
     public void comeWork() {
-        System.out.println("The worker come to work");
+        System.out.println("The worker " + getClass().getSimpleName() + " come to work");
     }
 
     public void goLunch() {
@@ -53,5 +54,15 @@ public class Worker extends Person {
     @Override
     public String toString() {
         return super.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        Worker worker = (Worker) o;
+        if (salary != ((Worker) o).salary) return false;
+        return employment != null ? employment.equals(worker) : worker.employment == null;
+
     }
 }
