@@ -54,9 +54,14 @@ public class Cashier extends Worker {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null) return false;
-
+        if (!(o instanceof Cashier)) return false;
+        if (!super.equals(o)) return false;
         Cashier cashier = (Cashier) o;
-        return numberCashier != 0 ? numberCashier == ((Cashier) o).numberCashier : ((Cashier) o).numberCashier == 0;
+        return getNumberCashier() == cashier.getNumberCashier();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getNumberCashier());
     }
 }

@@ -61,13 +61,15 @@ public class Person {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Person)) return false;
         Person person = (Person) o;
-        if (!dateBirth.equals(o)) return false;
-        return name != null ? name.equals(person.name) : person.name == null;
-
+        return Objects.equals(getName(), person.getName()) &&
+                Objects.equals(getDateBirth(), person.getDateBirth()) &&
+                Objects.equals(getNumberTel(), person.getNumberTel());
     }
 
-
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getDateBirth(), getNumberTel());
+    }
 }

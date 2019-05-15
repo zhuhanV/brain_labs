@@ -3,6 +3,8 @@ package main.java.ua.zp.brain.labs.oop.basics.inheritance;
 
 import main.java.ua.zp.brain.labs.oop.basics.inheritance.people.*;
 
+import java.util.Objects;
+
 public class Shop {
     private String name;
     private String address;
@@ -64,48 +66,44 @@ public class Shop {
         this.address = address;
     }
 
-    public static void openUp() {
-        Security security = new Security("VOVAN", "+30985268585", 15);
-        Manager manager = new Manager("ANNA", "+380953652525", "APPLE");
-        Cashier cashier = new Cashier("INNA", "+380953659858", 3);
-        Client client = new Client("OLGA", "+380685987452", 174);
+    {
+        security = new Security("VOVAN", "+30985268585", 15);
+        manager = new Manager("ANNA", "+380953652525", "APPLE");
+        cashier = new Cashier("INNA", "+380953659858", 3);
+        client = new Client("OLGA", "+380685987452", 174);
+    }
 
-        System.out.println("The shop has opened");
+    public void openUp() {
+        System.out.println(getClass().getSimpleName() + " " + getName() + " has opened");
 
         security.comeWork();
         System.out.println(security.toString());
-        security.sayHello();
-        security.doesJob();
-
-
         manager.comeWork();
         System.out.println(manager.toString());
-        manager.sayHello();
-
-
         cashier.comeWork();
         System.out.println(cashier.toString());
+        security.sayHello();
+        manager.sayHello();
         cashier.sayHello();
 
+    }
 
+    public void sellGoods() {
+        System.out.println("The shop sell goods");
+        security.doesJob();
         client.sayHello();
         System.out.println(client.toString());
-
         manager.doesJob();
         client.boughtProduct();
         cashier.doesJob();
+
+    }
+
+    public void goLunch() {
+        System.out.println("The shop closed for lunch");
         manager.sayBue();
         client.sayBue();
         cashier.sayBue();
-
-    }
-
-    public static void sellGoods() {
-        System.out.println("The shop sell goods");
-    }
-
-    public static void goLunch() {
-        System.out.println("The shop closed for lunch");
     }
 
 
@@ -118,16 +116,18 @@ public class Shop {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null) return false;
-
+        if (!(o instanceof Shop)) return false;
         Shop shop = (Shop) o;
-        if (!manager.equals(((Shop) o).manager)) return false;
-        if (!cashier.equals(((Shop) o).cashier)) return false;
-        if (!security.equals(((Shop) o).security)) return false;
-        if (!client.equals(((Shop) o).client)) return false;
-        return name != null ? name.equals(((Shop) o).name) : ((Shop) o).name == null;
+        return Objects.equals(getName(), shop.getName()) &&
+                Objects.equals(getAddress(), shop.getAddress()) &&
+                Objects.equals(getManager(), shop.getManager()) &&
+                Objects.equals(getCashier(), shop.getCashier()) &&
+                Objects.equals(getSecurity(), shop.getSecurity()) &&
+                Objects.equals(getClient(), shop.getClient());
     }
 
-
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getAddress(), getManager(), getCashier(), getSecurity(), getClient());
+    }
 }

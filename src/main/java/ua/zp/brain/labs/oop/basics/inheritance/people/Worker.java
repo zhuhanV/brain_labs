@@ -59,10 +59,16 @@ public class Worker extends Person {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null) return false;
+        if (!(o instanceof Worker)) return false;
+        if (!super.equals(o)) return false;
         Worker worker = (Worker) o;
-        if (salary != ((Worker) o).salary) return false;
-        return employment != null ? employment.equals(worker) : worker.employment == null;
+        return getSalary() == worker.getSalary() &&
+                isPresence() == worker.isPresence() &&
+                Objects.equals(getEmployment(), worker.getEmployment());
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(getEmployment(), getSalary(), isPresence());
     }
 }

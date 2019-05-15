@@ -56,11 +56,16 @@ public class Client extends Person {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null) return false;
-
+        if (!(o instanceof Client)) return false;
+        if (!super.equals(o)) return false;
         Client client = (Client) o;
-        if (id != ((Client) o).id) return false;
-        return discountCard != 0 ? discountCard == ((Client) o).discountCard : ((Client) o).discountCard == 0;
+        return getId() == client.getId() &&
+                getDiscountCard() == client.getDiscountCard() &&
+                getAmountMoney() == client.getAmountMoney();
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getDiscountCard(), getAmountMoney());
+    }
 }

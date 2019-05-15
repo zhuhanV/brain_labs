@@ -47,10 +47,15 @@ public class Manager extends Worker {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null) return false;
-
+        if (!(o instanceof Manager)) return false;
+        if (!super.equals(o)) return false;
         Manager manager = (Manager) o;
-        return department != null ? department.equals(((Manager) o).department) : ((Manager) o).department == null;
+        return Objects.equals(getDepartment(), manager.getDepartment());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getDepartment());
     }
 }
 
