@@ -2,6 +2,12 @@ package main.java.ua.zp.brain.labs.oop.basics.inheritance.people;
 
 import java.util.Objects;
 
+/**
+ * class Security
+ *
+ * @author Vira Zhuhan
+ * * @version 1.0
+ */
 public class Security extends Worker {
 
     private int id;

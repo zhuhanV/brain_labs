@@ -5,6 +5,9 @@ import java.util.Objects;
 
 /**
  * Implementing a class hierarchy with fields and methods
+ *
+ * @author Vira Zhuhan
+ *  * @version 1.0
  */
 
 public class Person {

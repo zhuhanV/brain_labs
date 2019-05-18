@@ -104,6 +104,7 @@ public class Shop {
         manager.sayBue();
         client.sayBue();
         cashier.sayBue();
+        security.sayBue();
     }
 
 
