@@ -1,4 +1,4 @@
-package main.java.ua.zp.brain.labs.oop.basics.abstracts.devices;
+package ua.zp.brain.labs.oop.basics.abstracts.devices;
 
 public class Oven {
 }

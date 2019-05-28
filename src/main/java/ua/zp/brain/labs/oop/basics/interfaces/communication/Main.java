@@ -1,5 +1,7 @@
 package ua.zp.brain.labs.oop.basics.interfaces.communication;
 
+import ua.zp.brain.labs.oop.basics.abstracts.devices.AbstractDevice;
+
 public class Main {
     public static void main(String[] args) {
         SmartPhone nokia = new SmartPhone();
@@ -24,9 +26,21 @@ public class Main {
         // generalSendMail(((HomePhone)panasonic)); // ERROR! HomePhone не имеет нужного интерфейса
         generalSendMail(iphone8);
         generalSendMail(ukrposhta);
+
+
+        goCall(nokia, galaxyS7, panasonic);
     }
 
     public static void generalSendMail(MailSender sender) {
         sender.sendMail("--This is mail-- from" + sender.getClass());
+    }
+
+    public static void goCall(Caller... abstractDevices) {
+        for (Caller ad : abstractDevices) {
+            ad.call("Anna");
+
+        }
+
+
     }
 }

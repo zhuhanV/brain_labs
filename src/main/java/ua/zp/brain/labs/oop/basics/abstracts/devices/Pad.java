@@ -2,13 +2,13 @@ package ua.zp.brain.labs.oop.basics.abstracts.devices;
 
 import java.util.Objects;
 
-public class Pad {
+public class Pad extends Mobile {
 
     private String name;
     private int price;
 
-    public Pad(String name, int price) {
-        this.name = name;
+    public Pad(String name, Integer serial, int price) {
+        super(name, serial);
         this.price = price;
     }
 
@@ -28,5 +28,10 @@ public class Pad {
 
     public String toString() {
         return name + " cost " + price;
+    }
+
+    @Override
+    void call() {
+        System.out.println("Pad Is call");
     }
 }
