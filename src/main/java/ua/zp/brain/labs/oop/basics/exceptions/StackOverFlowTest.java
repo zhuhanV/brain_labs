@@ -15,6 +15,7 @@ public class StackOverFlowTest {
         try {
             count++;
             test();
+
         } catch (StackOverflowError e) {
             System.out.println("Ошибка StackOverflowError");
         }

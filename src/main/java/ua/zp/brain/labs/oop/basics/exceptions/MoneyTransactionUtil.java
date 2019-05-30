@@ -7,23 +7,15 @@ public class MoneyTransactionUtil {
     private String numOther;
     private double sum;
 
-    static void sendTo(String numUser, String numOther, double sum) {
+    static void sendTo(String numUser, String numOther, double sum) throws AccountException,MoneyValueExeption {
         if (numUser.equals(numOther)) {
-            try {
-                throw new AccountException();
+                            throw new AccountException();
+               }
+        if (sum < 0 || sum > 100_000) {
+                            throw new MoneyValueExeption();
+               }
 
-            } catch (AccountException e) {
-                System.out.println("Ошибка с реквизитами банка.\n" +
-                        "Возможно, номер карты отправителя и получателя совпадают");
-            }
-        } else if (sum < 0 || sum > 100_000) {
-            try {
-                throw new MoneyValueExeption();
-            } catch (MoneyValueExeption e) {
-                System.out.println("Ошибка с суммой отправки.\n" +
-                        "Сумма должна быть больше 0. Сумма не должна превышать лимит в 100 000");
-            }
-        } else System.out.println("Сумма " + sum + ", со счета " + numUser
+        System.out.println("Сумма " + sum + ", со счета " + numUser
                 + " успешно переведена на счет " + numOther);
     }
 
