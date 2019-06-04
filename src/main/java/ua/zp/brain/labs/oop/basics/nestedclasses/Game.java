@@ -1,10 +1,11 @@
 package ua.zp.brain.labs.oop.basics.nestedclasses;
 
+import java.util.Objects;
+
 public class Game {
     final String name;
     final Ganre ganre;
     final Type type;
-
 
     enum Type {
         VIRTUAL, PHYSICAL;
@@ -46,32 +47,41 @@ public class Game {
 
         @Override
         public String toString() {
-            return "GameDisk{" +
-                    "description='" + description + '\'' +
-                    ", data=" + data +
-                    '}';
+            return "\n" + "GameDisk: " +
+                    "description: " + description +
+                    ", data: " + data;
         }
+
+
     }
 
     static class VirtualGame {
         private int rating;
         final Game data;
 
-        private VirtualGame (String name, Ganre ganre) {
+        private VirtualGame(String name, Ganre ganre, int rating) {
             this.data = new Game(name,ganre, Type.VIRTUAL);
+            this.rating = rating;
         }
-
         public int getRating() {
             return rating;
         }
-
         public void setRating(int rating) {
             this.rating = rating;
         }
-
         public Game getData() {
             return data;
         }
+
+
+        @Override
+        public String toString() {
+            return "\n" + "VirtualGame: " +
+                    "rating: " + rating +
+                    ", data: " + data;
+        }
+
+
     }
 
     static GameDisk getDisk (String name, Ganre ganre, String description) {
@@ -79,18 +89,31 @@ public class Game {
         return gameDisk;
     }
 
-    static VirtualGame getVirtualGame (String name, Ganre ganre) {
-        VirtualGame gameDisk = new VirtualGame(name,ganre);
+    static VirtualGame getVirtualGame(String name, Ganre ganre, int rating) {
+        VirtualGame gameDisk = new VirtualGame(name, ganre, rating);
         return gameDisk;
     }
 
 
     @Override
     public String toString() {
-        return "Game{" +
-                "name='" + name + '\'' +
-                ", ganre=" + ganre +
-                ", type=" + type +
-                '}';
+        return "Game " + name +
+                ", ganre: " + ganre +
+                ", type: " + type;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Game)) return false;
+        Game game = (Game) o;
+        return Objects.equals(getName(), game.getName()) &&
+                getGanre() == game.getGanre() &&
+                getType() == game.getType();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getGanre(), getType());
     }
 }

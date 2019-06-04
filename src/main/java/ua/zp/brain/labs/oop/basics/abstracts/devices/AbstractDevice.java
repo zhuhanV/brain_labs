@@ -56,7 +56,6 @@ public abstract class AbstractDevice {
     protected String getPasport() { return name + "#" + serial; }
 
     abstract void powerOn();
-
     abstract void powerOff();
     protected abstract void switchPower();
 }
