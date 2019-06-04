@@ -33,7 +33,7 @@ public class PlayRoom {
         System.out.println(Arrays.toString(gamesVirtual));
 
         GameConsole gameConsole = new GameConsole(Brand.SONY, "p09k");
-        gameConsole.loadGame(new Game("Strike", Ganre.RACE, Game.Type.PHYSICAL));
+        gameConsole.loadGame(gamesDisk[0]);
         gameConsole.playGame();
 
     }

@@ -15,27 +15,29 @@ public class GameConsole implements Powered {
 
 
     public void loadGame(Game game) {
-        setActiveGame(game);
+        this.activeGame = game;
         System.out.println("Игра " + activeGame + " загружается");
     }
 
-    public void playGame() {
-        System.out.println("Играем в " + this.activeGame);
-        firstGamepad.chargeLevel = firstGamepad.chargeLevel - 10;
-        secondGamepad.chargeLevel -= 10;
-        if (firstGamepad.chargeLevel == 0 || secondGamepad.chargeLevel == 0) {
+    public void playGame()  {
+        if (activeGame!=null)System.out.println("Играем в " + activeGame);
+        firstGamepad.chargeLevel =100.00;
+        System.out.println("заряд джойстика 1: "+ firstGamepad.chargeLevel);
+//        firstGamepad.chargeLevel = firstGamepad.chargeLevel - 10;
+//        secondGamepad.chargeLevel -= 10;
+//        if (firstGamepad.chargeLevel == 0 || secondGamepad.chargeLevel == 0) {
             powerOff();
-        }
+
 
     }
 
     public GameConsole(Brand brand, String serial) {
         this.brand = brand;
         this.serial = serial;
-        Gamepad firstGamepad = new Gamepad(brand, 1);
-        Gamepad secondGamepad = new Gamepad(brand, 2);
+        Gamepad firstGamepad = new Gamepad(brand, 1, serial);
+        Gamepad secondGamepad = new Gamepad(brand, 2, serial);
         if (firstGamepad.isOn) {
-            secondGamepad = new Gamepad(brand, 1);
+            secondGamepad = new Gamepad(brand, 1, serial);
         }
     }
 
@@ -124,7 +126,7 @@ public class GameConsole implements Powered {
     }
 
 
-    class Gamepad implements Powered {
+    public class Gamepad implements Powered {
         Brand brand;
         final String consoleSerial;
         final int connectedNumber;
@@ -141,7 +143,7 @@ public class GameConsole implements Powered {
             return connectedNumber;
         }
 
-        public Gamepad(Brand brand, int connectedNumber) {
+        private Gamepad(Brand brand, int connectedNumber, String consoleSerial) {
             this.brand = brand;
             this.connectedNumber = connectedNumber;
             this.consoleSerial = serial;
@@ -161,6 +163,16 @@ public class GameConsole implements Powered {
             if (isOn) {
                 System.out.println("Gamepad is Off");
             }
+        }
+
+        @Override
+        public String toString() {
+            return  connectedNumber +
+                    ", марка " + brand +
+                    ", серийный номер: " + consoleSerial +
+                    ", цвет: " + color +
+                    ", заряд: " + chargeLevel +
+                    '}';
         }
     }
 

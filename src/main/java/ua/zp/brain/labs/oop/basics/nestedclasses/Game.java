@@ -29,10 +29,11 @@ public class Game {
         return type;
     }
 
-    static class GameDisk {
+    static class GameDisk extends Game{
         final String description;
         final Game data;
          private GameDisk (String name, Ganre ganre, String description) {
+             super(name, ganre,Type.PHYSICAL);
              this.data = new Game(name, ganre,Type.PHYSICAL);
              this.description = description;
          }
