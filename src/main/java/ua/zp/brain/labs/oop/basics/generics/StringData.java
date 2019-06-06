@@ -10,15 +10,20 @@ public class StringData extends AbstractData {
     public <T extends  AbstractData & Storable> StringData(long id, T data) {
         super(id);
         this.type = data.getType();
-        this.data = data.toString();
+        this.data = data.convertToString();
         }
 
+
+    @Override
+    String convertToString() {
+        return data;
+    }
 
     @Override
     public String toString() {
         return "StringData{" +
                 "type=" + type +
                 ", data='" + data + '\'' +
-                '}';
+                "} " + super.toString();
     }
 }

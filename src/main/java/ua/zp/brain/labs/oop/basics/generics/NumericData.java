@@ -6,9 +6,22 @@ package ua.zp.brain.labs.oop.basics.generics;
 public class NumericData extends AbstractData implements Storable <Number>{
 
     private static final Type type = Type.NUM;
-    Number data;
+    private Number data;
     public NumericData(long id) {
         super(id);
+    }
+
+    public Number getData() {
+        return data;
+    }
+
+    public void setData(Number data) {
+        this.data = data;
+    }
+
+    @Override
+    public String convertToString() {
+        return String.valueOf(data);
     }
 
     @Override
@@ -18,18 +31,18 @@ public class NumericData extends AbstractData implements Storable <Number>{
 
     @Override
     public void write(Number data) {
-
+        this.data = data;
     }
 
     @Override
     public Type getType() {
-        return null;
+        return type;
     }
 
     @Override
     public String toString() {
         return "NumericData{" +
                 "data=" + data +
-                '}';
+                "} ";
     }
 }

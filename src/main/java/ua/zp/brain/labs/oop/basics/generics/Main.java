@@ -11,6 +11,10 @@ public class Main {
         XmlData xmlData = new XmlData(DocumentProcessorUtil.ID_COUNTER++);
         BinaryData binaryData = new BinaryData(DocumentProcessorUtil.ID_COUNTER++);
         NumericData numericData = new NumericData(DocumentProcessorUtil.ID_COUNTER++);
+        System.out.println(xmlData);
+        System.out.println(binaryData);
+        System.out.println(numericData);
+        System.out.println("");
 
         String xml = "<?xml version= \"1.0 \"?><Tests>qwerty</Tests>";
         DocumentProcessorUtil.build(xmlData,xml);
@@ -20,11 +24,20 @@ public class Main {
         Double d = 123.456789;
         DocumentProcessorUtil.build(numericData, d);
 
-        DocumentProcessorUtil.convert(xmlData);
-        DocumentProcessorUtil.convert(binaryData);
-        DocumentProcessorUtil.convert(xmlData);
+        System.out.println(xmlData);
+        System.out.println(binaryData);
+        System.out.println(numericData);
+        System.out.println("");
 
-        System.out.println(DocumentProcessorUtil.convert(xmlData).toString());
+        StringData xml1 = DocumentProcessorUtil.convert(xmlData);
+        StringData binaryData1 = DocumentProcessorUtil.convert(binaryData);
+        StringData numericData1 = DocumentProcessorUtil.convert(numericData);
+
+        System.out.println(xml1);
+        System.out.println(binaryData1);
+        System.out.println(numericData1);
+
+
 
 
 

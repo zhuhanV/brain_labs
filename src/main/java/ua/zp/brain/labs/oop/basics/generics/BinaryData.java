@@ -14,6 +14,11 @@ public class BinaryData extends AbstractData implements Storable <byte []>{
         super(id);
     }
 
+    @Override
+    String convertToString() {
+        return new String(data);
+    }
+
 
     @Override
     public byte[] read() {
@@ -22,7 +27,7 @@ public class BinaryData extends AbstractData implements Storable <byte []>{
 
     @Override
     public void write(byte[] data) {
-
+        this.data = data;
     }
 
     @Override
@@ -34,6 +39,7 @@ public class BinaryData extends AbstractData implements Storable <byte []>{
     public String toString() {
         return "BinaryData{" +
                 "data=" + Arrays.toString(data) +
-                '}';
+                "} ";
     }
 }
+

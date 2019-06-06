@@ -15,4 +15,5 @@ public abstract class AbstractData {
     }
 
     abstract String convertToString();
+
 }

@@ -19,7 +19,7 @@ public class XmlData extends AbstractData implements Storable <String> {
 
     @Override
     public void write(String data) {
-
+        this.data = data;
     }
 
     @Override
@@ -28,9 +28,14 @@ public class XmlData extends AbstractData implements Storable <String> {
     }
 
     @Override
+    String convertToString() {
+        return data;
+    }
+
+    @Override
     public String toString() {
         return "XmlData{" +
                 "data='" + data + '\'' +
-                '}';
+                "} ";
     }
 }
