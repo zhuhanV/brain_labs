@@ -32,9 +32,11 @@ public class PlayRoom {
         });
         System.out.println(Arrays.toString(gamesVirtual));
 
+        System.out.println("");
         GameConsole gameConsole = new GameConsole(Brand.SONY, "p09k");
         gameConsole.loadGame(gamesDisk[0]);
         gameConsole.playGame();
+
 
     }
 }

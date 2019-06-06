@@ -11,7 +11,7 @@ public class Main {
         XmlData xmlData = new XmlData(DocumentProcessorUtil.ID_COUNTER++);
         BinaryData binaryData = new BinaryData(DocumentProcessorUtil.ID_COUNTER++);
         NumericData numericData = new NumericData(DocumentProcessorUtil.ID_COUNTER++);
-        System.out.println(xmlData);
+        System.out.println(xmlData.toString());
         System.out.println(binaryData);
         System.out.println(numericData);
         System.out.println("");

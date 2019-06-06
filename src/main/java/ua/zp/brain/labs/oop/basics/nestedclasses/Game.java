@@ -61,7 +61,7 @@ public class Game {
         final Game data;
 
         private VirtualGame(String name, Ganre ganre, int rating) {
-            this.data = new Game(name,ganre, Type.VIRTUAL);
+            this.data = new Game(name, ganre, Type.VIRTUAL);
             this.rating = rating;
         }
         public int getRating() {

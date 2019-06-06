@@ -16,28 +16,33 @@ public class GameConsole implements Powered {
 
     public void loadGame(Game game) {
         this.activeGame = game;
-        System.out.println("Игра " + activeGame + " загружается");
+        System.out.println("Игра " + activeGame.getName() + " загружается");
     }
 
-    public void playGame()  {
-        if (activeGame!=null)System.out.println("Играем в " + activeGame);
-        firstGamepad.chargeLevel =100.00;
-        System.out.println("заряд джойстика 1: "+ firstGamepad.chargeLevel);
-//        firstGamepad.chargeLevel = firstGamepad.chargeLevel - 10;
-//        secondGamepad.chargeLevel -= 10;
-//        if (firstGamepad.chargeLevel == 0 || secondGamepad.chargeLevel == 0) {
+    public void playGame() {
+        if (activeGame != null) System.out.println("Играем в " + activeGame.getName());
+        {
+            System.out.println("заряд джойстика 1: " + firstGamepad.getChargeLevel());
+        }
+        System.out.println("заряд джойстика 2: " + secondGamepad.getChargeLevel());
+        double count = firstGamepad.getChargeLevel() - 10.0;
+        secondGamepad.chargeLevel -= 10;
+        if (count == 0 || secondGamepad.chargeLevel == 0) {
             powerOff();
 
 
+        }
     }
 
     public GameConsole(Brand brand, String serial) {
         this.brand = brand;
         this.serial = serial;
-        Gamepad firstGamepad = new Gamepad(brand, 1, serial);
-        Gamepad secondGamepad = new Gamepad(brand, 2, serial);
+        Gamepad firstGamepad = new Gamepad(this.brand, 1);
+        Gamepad secondGamepad = new Gamepad(this.brand, 2);
+        firstGamepad.color = Color.RED;
+        secondGamepad.color = Color.BLUE;
         if (firstGamepad.isOn) {
-            secondGamepad = new Gamepad(brand, 1, serial);
+            secondGamepad = new Gamepad(this.brand, 1);
         }
     }
 
@@ -143,7 +148,15 @@ public class GameConsole implements Powered {
             return connectedNumber;
         }
 
-        private Gamepad(Brand brand, int connectedNumber, String consoleSerial) {
+        public double getChargeLevel() {
+            return chargeLevel;
+        }
+
+        public void setChargeLevel(double chargeLevel) {
+            this.chargeLevel = chargeLevel;
+        }
+
+        private Gamepad(Brand brand, int connectedNumber) {
             this.brand = brand;
             this.connectedNumber = connectedNumber;
             this.consoleSerial = serial;
