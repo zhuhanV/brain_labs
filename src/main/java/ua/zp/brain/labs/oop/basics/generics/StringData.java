@@ -24,6 +24,6 @@ public class StringData extends AbstractData {
         return "StringData{" +
                 "type=" + type +
                 ", data='" + data + '\'' +
-                "} " + super.toString();
+                "} ";
     }
 }
