@@ -66,6 +66,7 @@ public class GameConsole implements Powered {
                 System.out.println("Подключите джойстик");
                 ++waitingCounter;
             } else {
+//               powerOff();
                 throw new ExeptionActivity();
             }
 
@@ -252,6 +253,7 @@ public class GameConsole implements Powered {
             }
             System.out.println("Gamepad " + toString() +
                     " is OFF");
+            isOn = false;
 
         }
 
