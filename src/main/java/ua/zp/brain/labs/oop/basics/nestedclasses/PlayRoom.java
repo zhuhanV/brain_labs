@@ -22,7 +22,7 @@ public class PlayRoom {
                 return gameDisk1.getData().getGanre().compareTo(gameDisk2.getData().getGanre());
             }
         });
-        System.out.println(Arrays.toString(gamesDisk));
+//        System.out.println(Arrays.toString(gamesDisk));
 
         Arrays.sort(gamesVirtual, new Comparator<Game.VirtualGame>() {
             @Override
@@ -30,14 +30,27 @@ public class PlayRoom {
                 return Integer.compare(virtualGame1.getRating(), virtualGame2.getRating());
             }
         });
-        System.out.println(Arrays.toString(gamesVirtual));
+//        System.out.println(Arrays.toString(gamesVirtual));
 
         System.out.println("");
-        GameConsole gameConsole = new GameConsole(Brand.SONY, "p09k");
+        GameConsole gameConsole = new GameConsole(Brand.SONY, "2652EF", "456hju876");
+        System.out.println("");
+        gameConsole.getFirstGamepad().setOn(false);
+        gameConsole.getSecondGamepad().setOn(false);
+        gameConsole.getFirstGamepad().powerOn();
+        gameConsole.getSecondGamepad().powerOn();
         gameConsole.loadGame(gamesDisk[0]);
         gameConsole.playGame();
-
+        gameConsole.playGame();
+        gameConsole.playGame();
+        gameConsole.playGame();
+        gameConsole.playGame();
+        gameConsole.playGame();
+        gameConsole.playGame();
+        gameConsole.playGame();
 
     }
+
+
 }
 
