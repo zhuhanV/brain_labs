@@ -236,9 +236,10 @@ public class GameConsole implements Powered {
         public void powerOn() {
             System.out.println("Gamepad " + toString() +
                     " is ON");
-            if (isOn) {
+            GameConsole.this.powerOn();
+            if (!GameConsole.this.isOn) {
                 GameConsole.this.isOn = true;
-                GameConsole.this.powerOn();
+
             } else isOn = true;
 
         }
