@@ -23,14 +23,9 @@ public class GameConsole implements Powered {
 
     }
 
-    public void playGame() {
-        try {
-            checkStatus();
+    public void playGame() throws ExeptionActivity{
+        checkStatus();
 
-        } catch (ExeptionActivity exeptionActivity) {
-            System.out.println("Приставка завершает работу из-за отсутствия активности");
-
-        }
         if (firstGamepad.isOn) {
             if (firstGamepad.chargeLevel <= 0) {
                 firstGamepad.powerOff();
@@ -163,9 +158,10 @@ public class GameConsole implements Powered {
 
     @Override
     public void powerOn() {
-        System.out.println("GameConsole " +
-                toString() + " is On");
-
+        if (isOn) {
+            System.out.println("GameConsole " +
+                    toString() + " is On");
+        }
     }
 
     @Override
@@ -239,33 +235,36 @@ public class GameConsole implements Powered {
 
         @Override
         public void powerOn() {
+            System.out.println("Gamepad " + toString() +
+                    " is ON");
+            isOn=true;
             if (isOn) {
-                System.out.println("Gamepad " + toString() +
-                        " is ON");
+                GameConsole.this.isOn=true;
                 GameConsole.this.powerOn();
             }
         }
 
-        @Override
-        public void powerOff() {
-            if (!firstGamepad.isOn && !secondGamepad.isOn) {
-                GameConsole.this.powerOff();
-            }
-            System.out.println("Gamepad " + toString() +
-                    " is OFF");
-            isOn = false;
 
+    @Override
+    public void powerOff() {
+        if (!firstGamepad.isOn && !secondGamepad.isOn) {
+            GameConsole.this.powerOff();
         }
+        System.out.println("Gamepad " + toString() +
+                " is OFF");
+        isOn = false;
 
-        @Override
-        public String toString() {
-            return connectedNumber +
-                    ", марка " + brand +
-                    ", серийный номер: " + consoleSerial +
-                    ", цвет: " + color +
-                    ", заряд: " + chargeLevel;
-        }
     }
+
+    @Override
+    public String toString() {
+        return connectedNumber +
+                ", марка " + brand +
+                ", серийный номер: " + consoleSerial +
+                ", цвет: " + color +
+                ", заряд: " + chargeLevel;
+    }
+}
 
 
 }

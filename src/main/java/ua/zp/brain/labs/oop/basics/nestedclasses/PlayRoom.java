@@ -35,34 +35,22 @@ public class PlayRoom {
         System.out.println("");
         GameConsole gameConsole = new GameConsole(Brand.SONY, "2652EF", "456hju876");
         System.out.println("");
-        gameConsole.getFirstGamepad().setOn(true);
-        gameConsole.getSecondGamepad().setOn(false);
+
         gameConsole.getFirstGamepad().powerOn();
         gameConsole.getSecondGamepad().powerOn();
         gameConsole.loadGame(gamesDisk[0]);
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
+        for (int i = 0; i < 30; i++) {
 
+            try {
+                gameConsole.playGame();
+            } catch (ExeptionActivity exeptionActivity) {
+                System.out.println("Приставка завершает работу из-за отсутствия активности");
+
+            }
+            }
+        }
     }
 
 
-}
+
 
