@@ -23,9 +23,8 @@ public class GameConsole implements Powered {
 
     }
 
-    public void playGame() throws ExeptionActivity{
+    public void playGame() throws ExeptionActivity {
         checkStatus();
-
         if (firstGamepad.isOn) {
             if (firstGamepad.chargeLevel <= 0) {
                 firstGamepad.powerOff();
@@ -237,34 +236,34 @@ public class GameConsole implements Powered {
         public void powerOn() {
             System.out.println("Gamepad " + toString() +
                     " is ON");
-            isOn=true;
             if (isOn) {
-                GameConsole.this.isOn=true;
+                GameConsole.this.isOn = true;
                 GameConsole.this.powerOn();
+            } else isOn = true;
+
+        }
+
+
+        @Override
+        public void powerOff() {
+            if (!firstGamepad.isOn && !secondGamepad.isOn) {
+                GameConsole.this.powerOff();
             }
+            System.out.println("Gamepad " + toString() +
+                    " is OFF");
+            isOn = false;
+
         }
 
-
-    @Override
-    public void powerOff() {
-        if (!firstGamepad.isOn && !secondGamepad.isOn) {
-            GameConsole.this.powerOff();
+        @Override
+        public String toString() {
+            return connectedNumber +
+                    ", марка " + brand +
+                    ", серийный номер: " + consoleSerial +
+                    ", цвет: " + color +
+                    ", заряд: " + chargeLevel;
         }
-        System.out.println("Gamepad " + toString() +
-                " is OFF");
-        isOn = false;
-
     }
-
-    @Override
-    public String toString() {
-        return connectedNumber +
-                ", марка " + brand +
-                ", серийный номер: " + consoleSerial +
-                ", цвет: " + color +
-                ", заряд: " + chargeLevel;
-    }
-}
 
 
 }

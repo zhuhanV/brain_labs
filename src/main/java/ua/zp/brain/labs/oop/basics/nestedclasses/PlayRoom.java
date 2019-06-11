@@ -40,12 +40,11 @@ public class PlayRoom {
         gameConsole.getSecondGamepad().powerOn();
         gameConsole.loadGame(gamesDisk[0]);
         for (int i = 0; i < 30; i++) {
-
             try {
                 gameConsole.playGame();
             } catch (ExeptionActivity exeptionActivity) {
                 System.out.println("Приставка завершает работу из-за отсутствия активности");
-
+            return;
             }
             }
         }
