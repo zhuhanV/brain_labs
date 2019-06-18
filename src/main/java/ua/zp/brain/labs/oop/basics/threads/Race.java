@@ -26,6 +26,10 @@ public class Race {
         }
 
         final List<Thread> threads = new ArrayList();
+        for (RaceCarRunnable car: cars) {
+            threads.add(new Thread(car));
+        }
+
         startRace(threads);
 
         try {
@@ -44,10 +48,7 @@ public class Race {
                     try {
                         Thread.sleep(500);
                         System.out.println("\"" + count + "...\"");
-                        startRaceTime = new AtomicLong(System.currentTimeMillis());
-                        synchronized (cars) {
-                            for (Thread car : cars) car.start();
-                        }
+
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -56,6 +57,10 @@ public class Race {
                 }
                 if (count == 0) {
                     System.out.println("\"GO!!!\"");
+                }
+                startRaceTime = new AtomicLong(System.currentTimeMillis());
+                synchronized (cars) {
+                    for (Thread car : cars) car.start();
                 }
             }
         }

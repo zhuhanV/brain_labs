@@ -1,5 +1,6 @@
 package ua.zp.brain.labs.oop.basics.threads;
 
+import java.text.SimpleDateFormat;
 import java.util.Objects;
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
@@ -13,11 +14,7 @@ public class RaceCarRunnable extends Car implements Runnable {
     private CountDownLatch cdl;
     private long finishTime;
 
-
-    public long getFinishTime() {
-        if (isFinish) {
-            finishTime = System.currentTimeMillis() - finishTime;
-        }
+     public long getFinishTime() {
         return finishTime;
     }
 
@@ -57,7 +54,7 @@ public class RaceCarRunnable extends Car implements Runnable {
         super(name, maxSpeed);
         this.distance = distance;
         this.cdl = cdl;
-        new Thread(this).start();
+
     }
 
     public int getRandomSpeed() {
@@ -91,15 +88,18 @@ public class RaceCarRunnable extends Car implements Runnable {
             }
             if (passed < distance) {
                 passed += (currentSpeed * 1000 / (60 * 60));
-                System.out.printf("\n" + super.getName() + " время заезда: " + getFinishTime() + " => speed: %d; progress: %d / %d \n", currentSpeed, passed, distance);
+                System.out.printf("\n" + super.getName() + " время заезда: " + finishTime + " => speed: %d; progress: %d / %d \n", currentSpeed, passed, distance);
+                cdl.countDown();
             } else {
                 this.isFinish = true;
-                cdl.countDown();
+                System.out.println(super.getName()+" FINISHED !");
             }
-
         }
-
     }
 
+    static String convertToTime(long time) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss z");
+        return dateFormat.toString();
+    }
 
 }
