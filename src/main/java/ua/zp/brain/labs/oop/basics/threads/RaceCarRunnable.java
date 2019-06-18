@@ -11,7 +11,15 @@ public class RaceCarRunnable extends Car implements Runnable {
     private int distance;
     private boolean isFinish;
     private CountDownLatch cdl;
+    private long finishTime;
 
+
+    public long getFinishTime() {
+        if (isFinish) {
+            finishTime = System.currentTimeMillis() - finishTime;
+        }
+        return finishTime;
+    }
 
     public CountDownLatch getCdl() {
         return cdl;

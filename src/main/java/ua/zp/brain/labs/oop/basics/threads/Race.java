@@ -5,12 +5,17 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class Race {
+    public static AtomicLong startRaceTime;
+
+
     public static void main(String[] args) {
 
         List<RaceCarRunnable> cars = new ArrayList<>();
         CountDownLatch cdl = new CountDownLatch(cars.size());
+
 
         int distanse = 100;
         cars.add(new RaceCarRunnable("Audi", 320, distanse, cdl));
@@ -25,6 +30,7 @@ public class Race {
             threads.add(new Thread(car));
         }
         startRace(threads);
+
         try {
             cdl.await();
         } catch (InterruptedException e) {
@@ -40,7 +46,7 @@ public class Race {
                 int count = 3;
                 while (count != 0) {
                     try {
-
+                        startRaceTime = new AtomicLong(System.currentTimeMillis());
                         Thread.sleep(500);
                         System.out.println("\"" + count + "...\"");
                         if (count == 0) {
