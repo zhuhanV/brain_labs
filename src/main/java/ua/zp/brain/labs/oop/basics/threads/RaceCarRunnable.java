@@ -90,9 +90,10 @@ public class RaceCarRunnable extends Car implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            passed += (currentSpeed * 1000 / (60 * 60));
-            System.out.printf("\n" + super.getName() + " => speed: %d; progress: %d / %d \n", currentSpeed, passed, distance);
-            if (distance >= passed) {
+            if (passed < distance) {
+                passed += (currentSpeed * 1000 / (60 * 60));
+                System.out.printf("\n" + super.getName() + " время заезда: " + getFinishTime() + " => speed: %d; progress: %d / %d \n", currentSpeed, passed, distance);
+            } else {
                 this.isFinish = true;
                 cdl.countDown();
             }

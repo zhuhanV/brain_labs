@@ -36,6 +36,8 @@ public class Race {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+
     }
 
 
@@ -53,9 +55,7 @@ public class Race {
                         }
                         startRaceTime = new AtomicLong(System.currentTimeMillis());
                         synchronized (cars) {
-                            for (Thread car : cars) {
-                            car.start();
-                            }
+                            for (Thread car : cars) car.start();
                         }
                     } catch (InterruptedException e) {
                         e.printStackTrace();
