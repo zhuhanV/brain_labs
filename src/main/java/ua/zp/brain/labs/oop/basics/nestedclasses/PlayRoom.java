@@ -36,7 +36,7 @@ public class PlayRoom {
         GameConsole gameConsole = new GameConsole(Brand.SONY, "2652EF", "456hju876");
         System.out.println("");
 
-        gameConsole.getFirstGamepad().powerOn();
+//        gameConsole.getFirstGamepad().powerOn();
         gameConsole.getSecondGamepad().powerOn();
         gameConsole.loadGame(gamesDisk[0]);
         for (int i = 0; i < 30; i++) {

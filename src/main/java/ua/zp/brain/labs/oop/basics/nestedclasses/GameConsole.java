@@ -73,11 +73,11 @@ public class GameConsole implements Powered {
         this.serial = serial;
         firstGamepad = new Gamepad(this.brand, 1);
         secondGamepad = new Gamepad(this.brand, 2);
+        firstGamepad.color = Color.RED;
+        secondGamepad.color = Color.BLUE;
         if (firstGamepad.isOn) {
             secondGamepad.connectedNumber = 1;
         }
-        firstGamepad.color = Color.RED;
-        secondGamepad.color = Color.BLUE;
     }
 
     @Override
@@ -236,6 +236,7 @@ public class GameConsole implements Powered {
         public void powerOn() {
             System.out.println("Gamepad " + toString() +
                     " is ON");
+            isOn = true;
             GameConsole.this.powerOn();
             if (!GameConsole.this.isOn) {
                 GameConsole.this.isOn = true;
