@@ -43,7 +43,7 @@ public class Race {
                 timeFinish = cars.get(i).getFinishTime();
                 winner = i;
             }
-            System.out.println("Победитель " + cars.get(winner));
+            System.out.println("Победитель " + cars.get(winner).getName());
         }
     }
 

@@ -105,4 +105,18 @@ public class RaceCarRunnable extends Car implements Runnable {
         }
         cdl.countDown();
     }
+
+//    static String convertToTime(long time) {
+//        String oldDateString = String.valueOf(time);
+//        SimpleDateFormat oldDateFormat = new SimpleDateFormat("ms", Locale.getDefault());
+//        SimpleDateFormat newDateFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+//          try {
+//            Date date = oldDateFormat.parse(oldDateString);
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//        String result = newDateFormat.format(date);
+//        return result;
+//    }
+
 }
