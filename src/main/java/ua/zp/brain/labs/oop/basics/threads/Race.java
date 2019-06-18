@@ -14,8 +14,7 @@ public class Race {
     public static void main(String[] args) {
 
         List<RaceCarRunnable> cars = new ArrayList<>();
-        CountDownLatch cdl = new CountDownLatch(cars.size());
-
+        CountDownLatch cdl = new CountDownLatch(2);
 
         int distanse = 1000;
         cars.add(new RaceCarRunnable("Audi", 320, distanse, cdl));
@@ -26,7 +25,7 @@ public class Race {
         }
 
         final List<Thread> threads = new ArrayList();
-        for (RaceCarRunnable car: cars) {
+        for (RaceCarRunnable car : cars) {
             threads.add(new Thread(car));
         }
 
@@ -36,6 +35,15 @@ public class Race {
             cdl.await();
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+        long timeFinish = Long.MAX_VALUE;
+        int winner = -1;
+        for (int i = 0; i < cars.size(); i++) {
+            if (cars.get(i).getFinishTime() < timeFinish) {
+                timeFinish = cars.get(i).getFinishTime();
+                winner = i;
+            }
+            System.out.println("Победитель " + cars.get(winner));
         }
     }
 
