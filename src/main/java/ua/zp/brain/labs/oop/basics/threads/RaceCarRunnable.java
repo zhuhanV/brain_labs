@@ -65,7 +65,6 @@ public class RaceCarRunnable extends Car implements Runnable {
         return randomSpeed;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

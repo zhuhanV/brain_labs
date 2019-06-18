@@ -240,7 +240,6 @@ public class GameConsole implements Powered {
             GameConsole.this.powerOn();
             if (!GameConsole.this.isOn) {
                 GameConsole.this.isOn = true;
-
             } else isOn = true;
 
         }

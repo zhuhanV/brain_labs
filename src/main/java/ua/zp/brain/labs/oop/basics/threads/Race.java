@@ -17,7 +17,7 @@ public class Race {
         CountDownLatch cdl = new CountDownLatch(cars.size());
 
 
-        int distanse = 100;
+        int distanse = 1000;
         cars.add(new RaceCarRunnable("Audi", 320, distanse, cdl));
         cars.add(new RaceCarRunnable("Opel", 285, distanse, cdl));
 
@@ -26,9 +26,6 @@ public class Race {
         }
 
         final List<Thread> threads = new ArrayList();
-        for (RaceCarRunnable car : cars) {
-            threads.add(new Thread(car));
-        }
         startRace(threads);
 
         try {
@@ -36,10 +33,7 @@ public class Race {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-
     }
-
 
     static void startRace(final List<Thread> cars) {
         new Thread(new Runnable() {
@@ -50,9 +44,6 @@ public class Race {
                     try {
                         Thread.sleep(500);
                         System.out.println("\"" + count + "...\"");
-                        if (count == 0) {
-                            System.out.println("\"GO!!!\"");
-                        }
                         startRaceTime = new AtomicLong(System.currentTimeMillis());
                         synchronized (cars) {
                             for (Thread car : cars) car.start();
@@ -60,7 +51,11 @@ public class Race {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
+
                     count--;
+                }
+                if (count == 0) {
+                    System.out.println("\"GO!!!\"");
                 }
             }
         }
