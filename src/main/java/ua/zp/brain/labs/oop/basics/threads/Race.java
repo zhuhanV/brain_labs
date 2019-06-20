@@ -45,6 +45,7 @@ public class Race {
             }
             System.out.println("Победитель " + cars.get(winner).getName());
         }
+
     }
 
     static void startRace(final List<Thread> cars) {
