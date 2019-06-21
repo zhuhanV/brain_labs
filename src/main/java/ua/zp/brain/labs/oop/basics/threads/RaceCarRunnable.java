@@ -1,6 +1,6 @@
 package ua.zp.brain.labs.oop.basics.threads;
 
-import java.text.ParseException;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -92,10 +92,10 @@ public class RaceCarRunnable extends Car implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            finishTime = System.currentTimeMillis() - startRaceTime.get();
+            finishTime = (System.currentTimeMillis() - startRaceTime.get()) / 1000;
             if (passed < distance) {
                 passed += (currentSpeed * 1000 / (60 * 60));
-                System.out.printf("\n" + super.getName() + " время заезда: " + convertToTime(finishTime) + " секунд => speed: %d; progress: %d / %d \n", currentSpeed, passed, distance);
+                System.out.printf("\n" + super.getName() + " время заезда: " + finishTime + " секунд => speed: %d; progress: %d / %d \n", currentSpeed, passed, distance);
 
 
             } else {
@@ -107,17 +107,8 @@ public class RaceCarRunnable extends Car implements Runnable {
     }
 
     static String convertToTime(long time) {
-        String oldDateString = String.valueOf(time / 1000);
-        SimpleDateFormat dateFormat = new SimpleDateFormat("ss", Locale.getDefault());
-        Date date = null;
-        try {
-            date = dateFormat.parse(oldDateString);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        String result = dateFormat.format(date);
-        return result;
+        String date = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(new Date(time));
+        return date;
     }
 
 }

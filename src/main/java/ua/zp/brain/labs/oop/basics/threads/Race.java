@@ -43,8 +43,10 @@ public class Race {
                 timeFinish = cars.get(i).getFinishTime();
                 winner = i;
             }
-            System.out.println("Победитель " + cars.get(winner).getName());
+            System.out.println("Победитель: " + cars.get(winner).getName());
         }
+
+        System.out.println("Текущее время: " + RaceCarRunnable.convertToTime(System.currentTimeMillis()));
 
     }
 
