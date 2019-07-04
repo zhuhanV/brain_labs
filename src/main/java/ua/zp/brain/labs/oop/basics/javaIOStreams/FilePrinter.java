@@ -7,11 +7,12 @@ import java.io.IOException;
 public class FilePrinter {
     public static void main(String[] args) {
 
-        File file = new File("https://github.com/zhuhanV/brain_labs/tree/master/src/main/java/ua/zp/brain/" +
-                "labs/oop/basics/nestedclasses");
+        File file = new File("D:\\работы студентов\\zhuhan\\brain_labs\\src\\main\\java" +
+                "\\ua\\zp\\brain\\labs\\oop\\basics\\abstracts\\devices\\AbstractDevice.java");
         try (FileInputStream fin = new FileInputStream(file)) {
-
-
+            int i = -1;
+            while((i=fin.read())!=-1){
+            System.out.print((char)i);}
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }

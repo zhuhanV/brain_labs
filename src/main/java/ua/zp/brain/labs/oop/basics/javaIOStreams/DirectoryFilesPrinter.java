@@ -7,7 +7,7 @@ import java.util.List;
 
 public class DirectoryFilesPrinter {
     public static void main(String[] args) {
-        File file = new File("D://D//учеба//с нуля");
+        File file = new File("D:\\работы студентов");
         printNames(file.listFiles());
     }
 
@@ -16,7 +16,7 @@ public class DirectoryFilesPrinter {
             for (File file : files) {
                 System.out.println(file.getName());
                 if (file.isDirectory()) {
-                    printNames(file);
+                    printNames(file.listFiles());
                 }
             }
         } else
