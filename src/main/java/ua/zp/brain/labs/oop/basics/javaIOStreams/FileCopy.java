@@ -10,7 +10,6 @@ public class FileCopy {
         try (FileInputStream fis = new FileInputStream("D:\\работы студентов\\pop.txt");
              FileOutputStream fos = new FileOutputStream("D:\\работы студентов\\popNew.txt")) {
             byte[] buffer = new byte[fis.available()];
-
             fis.read(buffer, 0, buffer.length);
             fos.write(buffer, 0, buffer.length);
         } catch (IOException ex) {
