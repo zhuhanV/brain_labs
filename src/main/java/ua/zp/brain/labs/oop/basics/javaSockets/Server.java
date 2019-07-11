@@ -7,9 +7,6 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-/**
- * Created by Brainacad4 on 09.07.2019.
- */
 public class Server {
     public static void main(String[] args) throws IOException{
         try (ServerSocket serveSocket = new ServerSocket(8888);

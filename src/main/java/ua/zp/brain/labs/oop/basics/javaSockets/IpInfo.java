@@ -13,7 +13,8 @@ public class IpInfo {
         int c;
         URL url = new URL("http://witest.ru/remoting/get_local_ip_address");
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-        System.out.println("Date: " + urlConnection.getDate());
+        System.out.println("URL: "+urlConnection.getURL());
+        System.out.println("Date: " + new Date(urlConnection.getDate()));
         System.out.println("Type: " + urlConnection.getContentType());
         System.out.println("Exp: " + urlConnection.getExpiration());
         System.out.println("Last Modify: " + new Date(urlConnection.getLastModified()));
