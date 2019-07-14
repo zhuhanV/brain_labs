@@ -12,16 +12,16 @@ import java.net.Socket;
 public class Client2 {
     public static void main(String[] args) throws IOException {
 
-        System.out.println("Enter to send message to server. Write ‘exit’ to close");
-        try (Socket connectToServerSocket = new Socket("localhost", 8888);
+        System.out.println("Вы что-то хотели сказать? Введите это здесь:");
+        try (Socket connectToServerSocket = new Socket("localhost", 8080);
              BufferedReader in = new BufferedReader(
-                     new InputStreamReader(connectToServerSocket.getInputStream())
-             );
+                     new InputStreamReader(connectToServerSocket.getInputStream()));
              PrintWriter out = new PrintWriter(connectToServerSocket.getOutputStream(), true);
-             BufferedReader inu = new BufferedReader(new InputStreamReader(System.in));) {
-            String userInput, serverOutput;
+             BufferedReader inu = new BufferedReader(new InputStreamReader(System.in))) {
+                String userInput, serverOutput;
             while ((userInput = inu.readLine()) != null) {
-                out.println(userInput);
+                out.write(userInput);
+                out.flush();
                 serverOutput = in.readLine();
                 System.out.println(serverOutput);
                 if (userInput.equalsIgnoreCase("exit")) {

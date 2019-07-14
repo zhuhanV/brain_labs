@@ -9,20 +9,20 @@ import java.net.Socket;
 
 public class Server {
     public static void main(String[] args) throws IOException{
-        try (ServerSocket serveSocket = new ServerSocket(8888);
+        try (ServerSocket serveSocket = new ServerSocket(8080);
              Socket clientSocket = serveSocket.accept();
              BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
              PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);) {
             String input;
             String output;
-            System.out.println("Wait for message");
+            System.out.println("Сервер запущен");
             while ((input = in.readLine()) != null) {
                 if (input.equalsIgnoreCase("exit")) break;
-                out.println("Response ::: " + "echo ->" + input);
+                out.println(clientSocket.getClass().getName()+" "+clientSocket.getLocalAddress().toString()+" сказал " + input);
                 System.out.println(input);
             }
         } catch (IOException ex) {
-            System.out.println("Error on server");
+            System.out.println("Ошибка сервера");
             System.exit(-1);
         }
     }
